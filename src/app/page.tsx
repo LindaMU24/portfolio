@@ -1,65 +1,229 @@
-import Image from "next/image";
+'use client';
+
+import { useCallback, useEffect, useState } from 'react';
+import styles from './page.module.css';
+import { GalleryId, LightboxImage, SelectedImage } from './types';
+import { AboutSection } from './sections/AboutSection';
+import { ContactSection } from './sections/ContactSection';
+import { ExperienceSection } from './sections/ExperienceSection';
+import { HeroSection } from './sections/HeroSection';
+import { Lightbox } from './sections/Lightbox';
+import { Navigation } from './sections/Navigation';
+import { ProjectsSection } from './sections/ProjectsSection';
+import { SkillsSection } from './sections/SkillsSection';
+
+const LIGHTBOX_GALLERIES: Record<GalleryId, LightboxImage[]> = {
+  bookGo: [
+    { src: '/book-go/book-go-login.png', alt: 'Book & Go - Inloggning och planeringsvy' },
+    { src: '/book-go/book-go-route-dense.png', alt: 'Book & Go - Rutt med laddstationer' },
+    { src: '/book-go/book-go-route-overview.png', alt: 'Book & Go - Översikt av resa och laddbehov' },
+  ],
+  mlDiabetes: [
+    {
+      src: '/ml-diabetes/confusion-matrices.png',
+      alt: 'Confusion Matrices för XGBoost och Random Forest',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    { src: '/ml-diabetes/roc-curves.png', alt: 'ROC Curves för alla modeller', previewClassName: 'object-contain bg-white p-3' },
+    {
+      src: '/ml-diabetes/correlation-heatmap.png',
+      alt: 'Korrelationsanalys mellan variabler',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/ml-diabetes/dataset-overview.png',
+      alt: 'Dataset overview och statistik',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    { src: '/ml-diabetes/final-validation.png', alt: 'Final model validation', previewClassName: 'object-contain bg-white p-3' },
+    {
+      src: '/ml-diabetes/load-model-python.png',
+      alt: 'Model deployment med Python',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+  ],
+  batteryManagement: [
+    {
+      src: '/battery-management/Teachers charging_simulator.png',
+      alt: 'Battery Management - Teachers charging simulator',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/battery-management/Price_rate.png',
+      alt: 'Battery Management - Pris',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/battery-management/Formatted_consuption.png',
+      alt: 'Battery Management - Formaterat pris',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/battery-management/Start_charging.png',
+      alt: 'Battery Management - Laddning på',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/battery-management/Stop_charging.png',
+      alt: 'Battery Management - Laddning stop',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/battery-management/Battery_percentage.png',
+      alt: 'Battery Management - Battery percentage',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+  ],
+  minesweep: [
+    {
+      src: '/minesweep/Start game.png',
+      alt: 'Minesweeper - Start',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/minesweep/Make move.png',
+      alt: 'Minesweeper - Make move',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/minesweep/Game over.png',
+      alt: 'Minesweeper - Game over',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+  ],
+  bulletin: [
+    {
+      src: '/bulletin/create channel too short validation.png',
+      alt: 'The Bulletin - Validering vid skapande av kanal',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/bulletin/create user correct.png',
+      alt: 'The Bulletin - Skapa användare korrekt',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/bulletin/create user validation wrong email.png',
+      alt: 'The Bulletin - Felaktig e-post valideras',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/bulletin/See channels.png',
+      alt: 'The Bulletin - Visa kanaler',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/bulletin/See posts from specific user.png',
+      alt: 'The Bulletin - Visa inlägg från specifik användare',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/bulletin/See users and their posts.png',
+      alt: 'The Bulletin - Visa användare och deras inlägg',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+  ],
+  todoTypescript: [
+    {
+      src: '/todo typescript/1Start.png',
+      alt: 'TypeScript ToDo - Start',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/todo typescript/2Tillagda uppgifter.png',
+      alt: 'TypeScript ToDo - Tillagda uppgifter',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/todo typescript/3Uppgift klar.png',
+      alt: 'TypeScript ToDo - Uppgift klar',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+  ],
+};
 
 export default function Home() {
+  const [selectedImage, setSelectedImage] = useState<SelectedImage | null>(null);
+
+  const openImage = (galleryId: GalleryId, index: number) => {
+    const galleryImages = LIGHTBOX_GALLERIES[galleryId];
+    const image = galleryImages[index];
+
+    if (!image) {
+      return;
+    }
+
+    setSelectedImage({
+      src: image.src,
+      alt: image.alt,
+      previewClassName: image.previewClassName,
+      galleryId,
+      index,
+    });
+  };
+
+  const showImageAtIndex = useCallback((galleryId: GalleryId, index: number) => {
+    const galleryImages = LIGHTBOX_GALLERIES[galleryId];
+    const normalizedIndex = (index + galleryImages.length) % galleryImages.length;
+    const image = galleryImages[normalizedIndex];
+
+    setSelectedImage({
+      src: image.src,
+      alt: image.alt,
+      previewClassName: image.previewClassName,
+      galleryId,
+      index: normalizedIndex,
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!selectedImage) {
+      return;
+    }
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedImage(null);
+      }
+      if (event.key === 'ArrowRight') {
+        showImageAtIndex(selectedImage.galleryId, selectedImage.index + 1);
+      }
+      if (event.key === 'ArrowLeft') {
+        showImageAtIndex(selectedImage.galleryId, selectedImage.index - 1);
+      }
+    };
+
+    window.addEventListener('keydown', onKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [selectedImage, showImageAtIndex]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="min-h-screen bg-black text-white">
+      <Navigation />
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection openImage={openImage} />
+      <SkillsSection />
+      <ExperienceSection />
+      <ContactSection />
+
+      {selectedImage && (
+        <Lightbox
+          selectedImage={selectedImage}
+          onClose={() => setSelectedImage(null)}
+          onPrevious={() => showImageAtIndex(selectedImage.galleryId, selectedImage.index - 1)}
+          onNext={() => showImageAtIndex(selectedImage.galleryId, selectedImage.index + 1)}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+      )}
+
+      <footer className="bg-black border-t border-gray-800 py-10">
+        <div className={`${styles.sectionInner} text-center text-gray-500`}>
+          <p>© 2026 Linda Blomkvist | Byggd med Next.js 16 & React 19</p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
   );
 }

@@ -1,0 +1,209 @@
+@reference "./globals.css";
+
+.sectionInner {
+  @apply max-w-5xl mx-auto px-6;
+}
+
+.sectionTitle {
+  @apply text-5xl font-bold mb-16;
+}
+
+.sectionTitleCompact {
+  @apply text-5xl font-bold mb-12;
+}
+
+.projectCardHeader {
+  @apply flex justify-between items-start mb-4;
+}
+
+.projectCardTitle {
+  @apply text-3xl font-bold;
+}
+
+.projectCardIcon {
+  @apply text-4xl;
+}
+
+.projectDescription {
+  @apply text-gray-400 mb-6 text-lg leading-relaxed;
+}
+
+.aboutCard {
+  @apply bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-8 hover:border-blue-500/50 transition;
+}
+
+.projectCardEmerald {
+  @apply bg-gradient-to-br from-emerald-900/30 to-lime-900/20 border border-emerald-500/40 rounded-2xl p-8 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/20 transition duration-300;
+}
+
+.projectCardPurple {
+  @apply bg-gradient-to-br from-purple-900/30 to-pink-900/30 border border-purple-500/50 rounded-2xl p-8 hover:border-purple-400 hover:shadow-2xl hover:shadow-purple-500/20 transition duration-300;
+}
+
+.projectCardMinesweep {
+  @apply bg-gradient-to-br from-orange-900/30 to-amber-900/20 border border-orange-500/40 rounded-2xl p-8 hover:border-orange-400 hover:shadow-2xl hover:shadow-orange-500/20 transition duration-300;
+}
+
+.projectCardBulletin {
+  @apply bg-gradient-to-br from-cyan-900/30 to-sky-900/20 border border-cyan-500/40 rounded-2xl p-8 hover:border-cyan-400 hover:shadow-2xl hover:shadow-cyan-500/20 transition duration-300;
+}
+
+.projectCardBattery {
+  @apply bg-gradient-to-br from-blue-900/30 to-cyan-900/20 border border-blue-500/40 rounded-2xl p-8 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/20 transition duration-300;
+}
+
+.projectCardTypeScript {
+  @apply bg-gradient-to-br from-emerald-900/30 to-green-900/20 border border-emerald-500/40 rounded-2xl p-8 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/20 transition duration-300;
+}
+
+.galleryGridThree {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-4 mb-6;
+}
+
+.galleryGridTwo {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-4 mb-6;
+}
+
+.galleryButtonEmerald {
+  @apply relative w-full h-56 rounded-lg overflow-hidden border border-emerald-500/30 hover:border-emerald-400 transition cursor-zoom-in;
+}
+
+.galleryButtonPurple {
+  @apply relative w-full h-64 rounded-lg overflow-hidden border border-purple-500/30 hover:border-purple-400 transition cursor-zoom-in;
+}
+
+.galleryButtonBlue {
+  @apply relative w-full h-64 rounded-lg overflow-hidden border border-blue-500/30 hover:border-blue-400 transition cursor-zoom-in;
+}
+
+.galleryButtonOrange {
+  @apply relative w-full h-64 rounded-lg overflow-hidden border border-orange-500/30 hover:border-orange-400 transition cursor-zoom-in;
+}
+
+.galleryButtonCyan {
+  @apply relative w-full h-64 rounded-lg overflow-hidden border border-cyan-500/30 hover:border-cyan-400 transition cursor-zoom-in;
+}
+
+.galleryButtonTypeScript {
+  @apply relative w-full h-64 rounded-lg overflow-hidden border border-emerald-500/30 hover:border-emerald-400 transition cursor-zoom-in;
+}
+
+.imageCover {
+  @apply object-cover;
+}
+
+.imageContainWhite {
+  @apply object-contain bg-white p-2;
+}
+
+.navLink {
+  @apply transition text-gray-300 hover:text-white;
+}
+
+.primaryButton {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-xl font-semibold transition transform hover:scale-105;
+}
+
+.outlineButton {
+  @apply border border-blue-500/50 hover:border-blue-400 text-white px-8 py-4 rounded-xl font-semibold transition hover:bg-blue-500/10;
+}
+
+.neutralCard {
+  @apply bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-2xl p-8 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/20 transition duration-300;
+}
+
+.skillsCard {
+  @apply bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-700 rounded-xl p-6 text-center hover:border-blue-500/50 hover:shadow-lg hover:shadow-blue-500/10 transition;
+}
+
+.tagBlue {
+  @apply bg-blue-500/20 border border-blue-500/50 text-blue-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagCyan {
+  @apply bg-cyan-500/20 border border-cyan-500/50 text-cyan-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagPurple {
+  @apply bg-purple-500/20 border border-purple-500/50 text-purple-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagPink {
+  @apply bg-pink-500/20 border border-pink-500/50 text-pink-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagEmerald {
+  @apply bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagLime {
+  @apply bg-lime-500/20 border border-lime-500/50 text-lime-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagOrange {
+  @apply bg-orange-500/20 border border-orange-500/50 text-orange-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagAmber {
+  @apply bg-amber-500/20 border border-amber-500/50 text-amber-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagSky {
+  @apply bg-sky-500/20 border border-sky-500/50 text-sky-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagTypeScript {
+  @apply bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.projectLinkBlue {
+  @apply text-blue-400 hover:text-blue-300 font-semibold inline-flex items-center gap-2;
+}
+
+.projectLinkEmerald {
+  @apply text-emerald-300 hover:text-emerald-200 font-semibold inline-flex items-center gap-2;
+}
+
+.projectLinkPurple {
+  @apply text-purple-300 hover:text-purple-200 font-semibold inline-flex items-center gap-2;
+}
+
+.projectLinkOrange {
+  @apply text-orange-300 hover:text-orange-200 font-semibold inline-flex items-center gap-2;
+}
+
+.projectLinkCyan {
+  @apply text-cyan-300 hover:text-cyan-200 font-semibold inline-flex items-center gap-2;
+}
+
+.projectLinkTypeScript {
+  @apply text-emerald-300 hover:text-emerald-200 font-semibold inline-flex items-center gap-2;
+}
+
+.experienceCardBlue {
+  @apply bg-gradient-to-br from-gray-900 to-gray-800 border-l-4 border-blue-500 rounded-2xl p-8 hover:shadow-lg hover:shadow-blue-500/10 transition;
+}
+
+.experienceCardCyan {
+  @apply bg-gradient-to-br from-gray-900 to-gray-800 border-l-4 border-cyan-500 rounded-2xl p-8 hover:shadow-lg hover:shadow-cyan-500/10 transition;
+}
+
+.experienceCardGray {
+  @apply bg-gradient-to-br from-gray-900 to-gray-800 border-l-4 border-gray-600 rounded-2xl p-8 hover:shadow-lg hover:shadow-gray-500/10 transition;
+}
+
+.statusPillBlue {
+  @apply text-sm px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full;
+}
+
+.statusPillCyan {
+  @apply text-sm px-3 py-1 bg-cyan-500/20 text-cyan-300 rounded-full;
+}
+
+.contactPanel {
+  @apply bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/30 rounded-2xl p-12 text-center backdrop-blur-sm;
+}
+
+.lightboxIconButton {
+  @apply text-white/80 hover:text-white text-4xl leading-none;
+}
