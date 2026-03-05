@@ -37,7 +37,7 @@ export function HeroSection() {
           <div className="flex justify-center">
             <div className="relative w-80 h-80 rounded-2xl overflow-hidden border-2 border-blue-500/50 shadow-2xl shadow-blue-500/20">
               <Image
-                src="/linda-profile.jpg"
+                src="/linda2.png"
                 alt="Linda Blomkvist - Frontend Developer"
                 width={320}
                 height={320}
