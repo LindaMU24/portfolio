@@ -54,9 +54,6 @@ export function ProjectsSection({ openImage }: ProjectsSectionProps) {
               <span className={styles.tagEmerald}>REST API</span>
               <span className={styles.tagLime}>UX/UI</span>
             </div>
-            <a href="https://github.com/LindaMU24/Examensarbete" target="_blank" rel="noopener noreferrer" className={styles.projectLinkEmerald}>
-              Se projekt på GitHub →
-            </a>
           </div>
 
           <div className={styles.projectCardPurple}>
