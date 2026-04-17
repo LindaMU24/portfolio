@@ -12,6 +12,54 @@ export function ProjectsSection({ openImage }: ProjectsSectionProps) {
       <div className={styles.sectionInner}>
         <h2 className={styles.sectionTitle}>Senaste projekt</h2>
         <div className="space-y-8">
+          <div className={styles.projectCardBattery}>
+            <div className={styles.projectCardHeader}>
+              <h3 className={styles.projectCardTitle}>YH Kursmatchare - AI för lärar-CV och kompetensmatchning</h3>
+              <span className={styles.projectCardIcon}>🎯</span>
+            </div>
+            <p className="text-gray-300 mb-4 text-lg leading-relaxed">
+              Pågående projekt där jag driver utveckling och vidareutveckling av ett AI-baserat kursmatchningsverktyg
+              som matchar lärar-CV, kompetenser och fritext mot relevanta YH-kurser. Jag ansvarar för hela kedjan,
+              från datainsamling och textutvinning till semantisk sökning, ranking och användargränssnitt.
+            </p>
+            <p className="text-gray-400 mb-4">
+              <strong className="text-blue-300">Data & extraktion:</strong> pipeline-flöden för att läsa och strukturera
+              kursunderlag från PDF:er, kvalitetssäkring av metadata, textutvinning med PyMuPDF samt OCR-fallback via
+              OpenAI. Data normaliseras till CSV och berikas för ett jämförbart och sökbart underlag.
+            </p>
+            <p className="text-gray-400 mb-6">
+              <strong className="text-blue-300">Sökning & matchning:</strong> embeddings och vektorindexering i Pinecone
+              med hybridrankning där semantisk träff kombineras med lexikal överlappning. Jag utvecklar även funktioner
+              för filtrering, gruppering av kursresultat, relevansbedömning och export i en Streamlit-applikation,
+              publicerad i molnmiljö på Render.
+            </p>
+
+            <div className={styles.galleryGridThree}>
+              <button type="button" onClick={() => openImage('yhCourseMatcher', 0)} className={styles.galleryButtonBlue}>
+                <Image src="/YH-Course.Matcher/CV extraction.png" alt="YH Kursmatchare - CV-extraktion och strukturerad text" fill className={styles.imageContainWhite} />
+              </button>
+              <button type="button" onClick={() => openImage('yhCourseMatcher', 1)} className={styles.galleryButtonBlue}>
+                <Image src="/YH-Course.Matcher/Matching.png" alt="YH Kursmatchare - Matchning av kompetenser mot kursinnehåll" fill className={styles.imageContainWhite} />
+              </button>
+              <button type="button" onClick={() => openImage('yhCourseMatcher', 2)} className={styles.galleryButtonBlue}>
+                <Image src="/YH-Course.Matcher/Search match.png" alt="YH Kursmatchare - Sökning och rankat kursresultat" fill className={styles.imageContainWhite} />
+              </button>
+            </div>
+
+            <div className="flex gap-2 mb-6 flex-wrap">
+              <span className={styles.tagBlue}>Python</span>
+              <span className={styles.tagCyan}>Streamlit</span>
+              <span className={styles.tagSky}>OpenAI API</span>
+              <span className={styles.tagBlue}>Pinecone</span>
+              <span className={styles.tagCyan}>PyMuPDF</span>
+              <span className={styles.tagSky}>python-dotenv</span>
+              <span className={styles.tagSky}>tqdm</span>
+              <span className={styles.tagSky}>CSV</span>
+              <span className={styles.tagBlue}>Git</span>
+              <span className={styles.tagCyan}>Render</span>
+            </div>
+          </div>
+
           <div className={styles.projectCardEmerald}>
             <div className={styles.projectCardHeader}>
               <h3 className={styles.projectCardTitle}>Book & Go – Examensarbete</h3>

@@ -140,6 +140,23 @@ const LIGHTBOX_GALLERIES: Record<GalleryId, LightboxImage[]> = {
       previewClassName: 'object-contain bg-white p-3',
     },
   ],
+  yhCourseMatcher: [
+    {
+      src: '/YH-Course.Matcher/CV extraction.png',
+      alt: 'YH Kursmatchare - Textutvinning av CV och kursunderlag',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/YH-Course.Matcher/Matching.png',
+      alt: 'YH Kursmatchare - Matchning och ranking av relevanta kurser',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+    {
+      src: '/YH-Course.Matcher/Search match.png',
+      alt: 'YH Kursmatchare - Sökresultat med semantisk träffbild',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+  ],
 };
 
 export default function Home() {
