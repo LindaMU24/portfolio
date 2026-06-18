@@ -9,9 +9,9 @@ export function ExperienceSection() {
           <div className={styles.experienceCardBlue}>
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-2xl font-bold">LIA Acceleratorprogrammet</h3>
-              <span className={styles.statusPillBlue}>Pågående</span>
+              <span className={styles.statusPillBlue}>Jan 2026 - Jun 2026</span>
             </div>
-            <p className="text-blue-400 mb-3">ZoCom | Jan 2026 - Pågående</p>
+            <p className="text-blue-400 mb-3">ZoCom AB, Stockholm</p>
             <p className="text-gray-400 mb-3">
               Praktik i innovationsteamet med fokus på underhåll och utveckling av både befintliga och nya projekt.
               Arbetar nära senior teknisk chef och bidrar i hela flödet från behov till implementation.
@@ -21,7 +21,7 @@ export function ExperienceSection() {
           <div className={styles.experienceCardBlue}>
             <div className="flex justify-between items-start mb-2">
               <h3 className="text-2xl font-bold">Utbildning</h3>
-              <span className={styles.statusPillBlue}>Sep 2024 - Pågående</span>
+              <span className={styles.statusPillBlue}>Sep 2024 - Jun 2026</span>
             </div>
             <p className="text-blue-400 mb-3">Folkuniversitetet Yrkeshögskola</p>
             <p className="text-gray-400">
