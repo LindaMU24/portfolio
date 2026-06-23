@@ -52,6 +52,10 @@
   @apply bg-gradient-to-br from-blue-900/30 to-cyan-900/20 border border-blue-500/40 rounded-2xl p-8 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-500/20 transition duration-300;
 }
 
+.projectCardGenealogy {
+  @apply bg-gradient-to-br from-emerald-900/25 to-lime-900/15 border border-emerald-300/45 rounded-2xl p-8 hover:border-emerald-200 hover:shadow-2xl hover:shadow-emerald-300/20 transition duration-300;
+}
+
 .projectCardTypeScript {
   @apply bg-gradient-to-br from-emerald-900/30 to-green-900/20 border border-emerald-500/40 rounded-2xl p-8 hover:border-emerald-400 hover:shadow-2xl hover:shadow-emerald-500/20 transition duration-300;
 }
@@ -102,6 +106,14 @@
 
 .galleryButtonBlue {
   @apply relative w-full h-64 rounded-lg overflow-hidden border border-blue-500/30 hover:border-blue-400 transition cursor-zoom-in;
+}
+
+.galleryButtonGreen {
+  @apply relative w-full h-64 rounded-lg overflow-hidden border border-green-500/30 hover:border-green-400 transition cursor-zoom-in;
+}
+
+.galleryButtonMint {
+  @apply relative w-full h-64 rounded-lg overflow-hidden border border-emerald-300/45 hover:border-emerald-200 transition cursor-zoom-in;
 }
 
 .galleryButtonOrange {
@@ -182,6 +194,10 @@
 
 .tagTypeScript {
   @apply bg-emerald-500/20 border border-emerald-500/50 text-emerald-300 px-4 py-2 rounded-full text-sm font-medium;
+}
+
+.tagMint {
+  @apply bg-emerald-300/20 border border-emerald-300/55 text-emerald-100 px-4 py-2 rounded-full text-sm font-medium;
 }
 
 .projectLinkBlue {

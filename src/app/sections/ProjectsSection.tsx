@@ -46,6 +46,47 @@ type Project = {
 
 const projects: Project[] = [
   {
+    id: 'aiGenealogy',
+    title: 'AI Genealogy Match & Storyteller - Passionproject',
+    icon: '🧬',
+    cardClassName: styles.projectCardGenealogy,
+    accentClassName: 'text-emerald-200',
+    galleryClassName: styles.galleryGridThree,
+    galleryButtonClassName: styles.galleryButtonMint,
+    summary: (
+      <>
+        Ett AI-baserat släktforskningsprojekt med React-frontend och en backend uppdelad i API Gateway
+        (Node.js/TypeScript), matchningsservice (Python) och storytelling-service. Lösningen kopplar ihop
+        GEDCOM-data, arkivkällor och LLM-stöd för att hitta träffar och skapa sammanhängande berättelser.
+      </>
+    ),
+    detailOneTitle: 'Systemarkitektur:',
+    detailOne:
+      'Frontend med vy för släktträd, persondetaljer och källdokument via REST API. I backend hanteras routing i Node.js/TypeScript, medan Python-tjänster kör NLP-baserad matchning och textgenerering. Integrering planeras/byggs mot Ancestry GEDCOM, Riksarkivet och LLM-tjänster.',
+    detailTwoTitle: 'Teknisk stack:',
+    detailTwo:
+      'React 18+ och TypeScript 5+ i frontend, Node.js 20+ och Express i API-lagret samt Python 3.11+ med spaCy/transformers för matchning. Datalager är PostgreSQL eller MongoDB beroende på datamodell, med målbild för serverless deployment i AWS (Lambda, API Gateway, S3).',
+    images: [
+      {
+        src: '/AI-Genealogy/Match-Storyteller.png',
+        alt: 'AI Genealogy Match & Storyteller - arkitektur och flöde',
+        className: styles.imageContainWhite,
+      },
+    ],
+    tags: [
+      { label: 'React', className: styles.tagMint },
+      { label: 'TypeScript', className: styles.tagMint },
+      { label: 'Node.js', className: styles.tagMint },
+      { label: 'Express', className: styles.tagMint },
+      { label: 'Python 3.11+', className: styles.tagMint },
+      { label: 'spaCy', className: styles.tagMint },
+      { label: 'Transformers', className: styles.tagMint },
+      { label: 'PostgreSQL/MongoDB', className: styles.tagMint },
+      { label: 'AWS Serverless', className: styles.tagMint },
+      { label: 'REST API', className: styles.tagMint },
+    ],
+  },
+  {
     id: 'yhCourseMatcher',
     title: 'YH Kursmatchare - AI för lärar-CV och kompetensmatchning',
     icon: '🎯',
@@ -55,7 +96,7 @@ const projects: Project[] = [
     galleryButtonClassName: styles.galleryButtonBlue,
     summary: (
       <>
-        Pågående projekt där jag driver utveckling och vidareutveckling av ett AI-baserat kursmatchningsverktyg som
+        Projekt där jag driver utveckling och vidareutveckling av ett AI-baserat kursmatchningsverktyg som
         matchar lärar-CV, kompetenser och fritext mot relevanta YH-kurser. Jag ansvarar för hela kedjan, från
         datainsamling och textutvinning till semantisk sökning, ranking och användargränssnitt.
       </>

@@ -157,6 +157,13 @@ const LIGHTBOX_GALLERIES: Record<GalleryId, LightboxImage[]> = {
       previewClassName: 'object-contain bg-white p-3',
     },
   ],
+  aiGenealogy: [
+    {
+      src: '/AI-Genealogy/Match-Storyteller.png',
+      alt: 'AI Genealogy Match & Storyteller - matchning och berättande',
+      previewClassName: 'object-contain bg-white p-3',
+    },
+  ],
 };
 
 export default function Home() {

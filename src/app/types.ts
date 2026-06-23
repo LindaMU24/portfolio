@@ -1,4 +1,12 @@
-export type GalleryId = 'bookGo' | 'mlDiabetes' | 'batteryManagement' | 'minesweep' | 'bulletin' | 'todoTypescript' | 'yhCourseMatcher';
+export type GalleryId =
+  | 'bookGo'
+  | 'mlDiabetes'
+  | 'batteryManagement'
+  | 'minesweep'
+  | 'bulletin'
+  | 'todoTypescript'
+  | 'yhCourseMatcher'
+  | 'aiGenealogy';
 
 export type LightboxImage = {
   src: string;
